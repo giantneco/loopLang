@@ -3,3 +3,5 @@
 *.o
 *.local
 lexer.ml
+main.native
+_debug
