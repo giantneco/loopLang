@@ -4,4 +4,4 @@
 *.local
 lexer.ml
 main.native
-_debug
+_build
