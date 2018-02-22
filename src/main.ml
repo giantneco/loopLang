@@ -1,3 +1,4 @@
+open Ast
 
 (* dummy main *)
 let main () =
@@ -6,6 +7,6 @@ let main () =
   let expr   = String.concat " " args in
   let lexbuf = Lexing.from_string expr in
   let result = Parser.main Lexer.token lexbuf in
-    Printf.printf "%d\n" result
+    Printf.printf "%s\n" (show result)
 
 let () = main ()

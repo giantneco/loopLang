@@ -11,6 +11,11 @@ let alpha = ['A'-'Z' 'a'-'z' '_']
 let alnum = digit | alpha | '\''
 
 rule token = parse
-  | digit+
-  { let str = Lexing.lexeme lexbuf in INT (int_of_string str) }
-  | eof { EOF }
+| [ ' ' '\t' '\n' ] { token lexbuf }
+| digit+
+    { let str = Lexing.lexeme lexbuf in INT (int_of_string str) }
+| '+' { PLUS }
+| '-' { MINUS }
+| '*' { MUL }
+| '/' { DIV }
+| eof { EOF }

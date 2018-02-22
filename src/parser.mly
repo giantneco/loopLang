@@ -1,7 +1,12 @@
+%{
+  open Ast
+%}
+
 %token <int> INT
+%token PLUS, MINUS, MUL, DIV
 %token EOF
 %start main
-%type <int> main
+%type <Ast.t> main
 %%
 main:
     expr EOF
@@ -9,6 +14,9 @@ main:
   ;
 
 expr:
-    INT
-  { $1 }
+    INT { Int $1 }
+  | expr PLUS  expr { Plus  ($1, $3) }
+  | expr MINUS expr { Minus ($1, $3) }
+  | expr MUL   expr { Mul   ($1, $3) }
+  | expr DIV   expr { Div   ($1, $3) }
   ;
