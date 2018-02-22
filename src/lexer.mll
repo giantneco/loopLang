@@ -1,11 +1,13 @@
-
 {
-open Parser
+  open Parser
 }
 
 let space = [' ' '\t' '\n' '\r']
+
 let digit = ['0'-'9']
+
 let alpha = ['A'-'Z' 'a'-'z' '_']
+
 let alnum = digit | alpha | '\''
 
 rule token = parse
